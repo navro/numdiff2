@@ -13,11 +13,19 @@ M = twopBVP(fvec, alpha, beta, L, N);
 figure(1);
 plot(x,M);
 
+% Plot settings
+xlabel('Position', 'Interpreter', 'latex', 'fontsize', 13);
+ylabel('B\"ojmoment', 'Interpreter', 'latex', 'fontsize', 13);
+
 %% Solve u''=M(x)/(EI(x))=H(x), M(0)=M(L)=0
 fvec = M(2:end-1)./(E.*I(x(2:end-1)))';
 u = twopBVP(fvec, alpha, beta, L, N);
 figure(2);
 plot(x,u);
+
+% Plot settings
+xlabel('Position', 'Interpreter', 'latex', 'fontsize', 13);
+ylabel('Deflektion', 'Interpreter', 'latex', 'fontsize', 13);
 
 %% Deflection at the midpoint
 u(501)

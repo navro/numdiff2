@@ -9,10 +9,16 @@ y = twopBVP(fvec', alpha, beta, L, N);
 
 figure(1);
 hold on;
-plot(x,y);
+plot(x, y, 'b', 'LineWidth', 1.5);
 
 % Plot the analytic solution
-plot(x,-sin(x));
+plot(x, -sin(x), 'g');
+
+% Plot settings
+xlabel('$x$', 'Interpreter', 'latex', 'fontsize', 13);
+ylabel('$y$', 'Interpreter', 'latex', 'fontsize', 13);
+l = legend('Numerisk l\"osning', '$-\sin(x)$', 'Location', 'NorthEast');
+set(l, 'Interpreter', 'latex');
 
 %% Plot the global error as a function of N
 k = 4:12;
@@ -37,3 +43,8 @@ figure(2);
 loglog(Ns, vals, '*');
 hold on;
 loglog(int, feval(f, int));
+
+% Plot settings
+grid on;
+xlabel('Antal steg $N$', 'Interpreter', 'latex', 'fontsize', 13);
+ylabel('Fel', 'Interpreter', 'latex', 'fontsize', 13);

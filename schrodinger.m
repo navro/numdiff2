@@ -1,6 +1,5 @@
 %% Solves the Schrödinger equation ψ''-V(x)ψ=-Eψ for a potential V(x)
-%  in ther interval [0,1], where ψ(0)=ψ(1)=0. Uses N internal points.
-%  Prints the first k eigenvalues and plots the first k eigenvectors
+% Uses N internal points. Returns eigenvalues and eigenvectors
 
 function [lambdas, eigenvecs] = schrodinger(vvec, N)
 dx = 1/(N+1);
