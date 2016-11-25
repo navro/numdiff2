@@ -16,6 +16,9 @@ plot(x,M);
 % Plot settings
 xlabel('Position', 'Interpreter', 'latex', 'fontsize', 13);
 ylabel('B\"ojmoment', 'Interpreter', 'latex', 'fontsize', 13);
+set(gcf, 'PaperUnits', 'normalized');
+set(gcf,'Paperposition',[0, 0, 1, 0.4]);
+saveas(gcf, 'beamM', 'epsc');
 
 %% Solve u''=M(x)/(EI(x))=H(x), M(0)=M(L)=0
 fvec = M(2:end-1)./(E.*I(x(2:end-1)))';
@@ -26,6 +29,9 @@ plot(x,u);
 % Plot settings
 xlabel('Position', 'Interpreter', 'latex', 'fontsize', 13);
 ylabel('Deflektion', 'Interpreter', 'latex', 'fontsize', 13);
+set(gcf, 'PaperUnits', 'normalized');
+set(gcf,'Paperposition',[0, 0, 1, 0.4]);
+saveas(gcf, 'beamU', 'epsc');
 
 %% Deflection at the midpoint
 u(501)

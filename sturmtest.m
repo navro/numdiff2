@@ -18,8 +18,14 @@ loglog(Ns(1:end),Ns(1:end).^(-2));
 
 % Plot settings
 grid on;
+plot([0 0], [0 0], 'w');
 xlabel('Antal steg $N$', 'Interpreter', 'latex', 'fontsize', 13);
 ylabel('Felet $|\lambda_{\Delta x} - \lambda|$', 'Interpreter', 'latex', 'fontsize', 13);
+l = legend('Felet f\"or $\lambda_3$', 'Felet f\"or $\lambda_2$', 'Felet f\"or $\lambda_1$', '$C \cdot N^{-2}$', '$\lambda_1 < \lambda_2 < \lambda_3$', 'Location', 'NorthEast');
+set(l, 'Interpreter', 'latex');
+set(gcf, 'PaperUnits', 'normalized');
+set(gcf,'Paperposition',[0, 0, 1, 0.4]);
+saveas(gcf, 'sturmERR', 'epsc');
 
 %% Print the first three eigenvalues for N=499
 N = 499;
@@ -42,3 +48,6 @@ s2 = ['$\lambda = ' num2str(lambdas(end-1), '%.6g') '$'];
 s3 = ['$\lambda = ' num2str(lambdas(end), '%.6g') '$'];
 l = legend(s1, s2, s3, 'Location', 'SouthEast');
 set(l, 'Interpreter', 'latex');
+set(gcf, 'PaperUnits', 'normalized');
+set(gcf,'Paperposition',[0, 0, 1, 0.4]);
+saveas(gcf, 'sturmEIG', 'epsc');

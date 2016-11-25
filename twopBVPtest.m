@@ -9,7 +9,7 @@ y = twopBVP(fvec', alpha, beta, L, N);
 
 figure(1);
 hold on;
-plot(x, y, 'b', 'LineWidth', 1.5);
+plot(x, y, 'b', 'LineWidth', 1);
 
 % Plot the analytic solution
 plot(x, -sin(x), 'g');
@@ -17,8 +17,12 @@ plot(x, -sin(x), 'g');
 % Plot settings
 xlabel('$x$', 'Interpreter', 'latex', 'fontsize', 13);
 ylabel('$y$', 'Interpreter', 'latex', 'fontsize', 13);
-l = legend('Numerisk l\"osning', '$-\sin(x)$', 'Location', 'NorthEast');
+l = legend('Numerisk l\"osning till $\dot{y} = \sin{x}$', '$y = -\sin(x)$', 'Location', 'NorthWest');
+axis([0 2*pi -1.5 1.5])
 set(l, 'Interpreter', 'latex');
+set(gcf, 'PaperUnits', 'normalized');
+set(gcf,'Paperposition',[0, 0, 1, 0.4]);
+saveas(gcf, 'BVPtest', 'epsc');
 
 %% Plot the global error as a function of N
 k = 4:12;
@@ -48,3 +52,8 @@ loglog(int, feval(f, int));
 grid on;
 xlabel('Antal steg $N$', 'Interpreter', 'latex', 'fontsize', 13);
 ylabel('Fel', 'Interpreter', 'latex', 'fontsize', 13);
+l = legend('Fel', '$C \cdot N^{-2}$', 'Location', 'NorthEast');
+set(l, 'Interpreter', 'latex');
+set(gcf, 'PaperUnits', 'normalized');
+set(gcf,'Paperposition',[0, 0, 1, 0.4]);
+saveas(gcf, 'BVPerr', 'epsc');
